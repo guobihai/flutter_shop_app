@@ -144,16 +144,16 @@ class CatalogPageInfoState extends State<CatalogPageInfo>
                 Image(
                   image: NetworkImage(
                       "https://gw.alicdn.com/bao/uploaded/i1/1969845060/O1CN011nFWZ5u5Uv6Fb8N_!!0-item_pic.jpg"),
-                  width: 70,
+                  width: 60,
                 ),
                 new Padding(
                   padding: EdgeInsets.only(
-                      top: 8.0, left: 5.0, right: 5.0, bottom: 5.0),
+                      top: 5.0, left: 5.0, right: 5.0, bottom: 5.0),
                   child: Text(
                     "奶粉${index}",
                     style: TextStyle(
                         color: Colors.black,
-                        fontSize: 11,
+                        fontSize: 10,
                         fontWeight: FontWeight.bold),
                   ),
                 )
@@ -182,7 +182,7 @@ class CatalogPageInfoState extends State<CatalogPageInfo>
         padding: EdgeInsets.only(left: 10.0),
         child: Text(
           title,
-          style: TextStyle(fontSize: 12.0, fontWeight: FontWeight.bold),
+          style: TextStyle(fontSize: 11.0, fontWeight: FontWeight.bold),
         ));
   }
 
@@ -272,7 +272,7 @@ class CatalogPageInfoState extends State<CatalogPageInfo>
       page = count ~/ 3 + 1;
     }
 
-    return goodsItemWidth * page + page * 10;
+    return goodsItemWidth * page + page * 30;
   }
 
   @override

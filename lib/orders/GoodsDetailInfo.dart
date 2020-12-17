@@ -30,7 +30,7 @@ class GoodsDetailInfoState extends State<GoodsDetailInfo>
           direction: Axis.horizontal,
           children: <Widget>[
             Expanded(
-              flex: 1,
+              flex: 2,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -46,7 +46,7 @@ class GoodsDetailInfoState extends State<GoodsDetailInfo>
                         color: Colors.black54,
                       ),
                       Text(
-                        "联系客服",
+                        "客服",
                         style: TextStyle(fontSize: 10.0),
                       )
                     ],
@@ -85,7 +85,7 @@ class GoodsDetailInfoState extends State<GoodsDetailInfo>
               ),
             ),
             Expanded(
-              flex: 1,
+              flex: 3,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 crossAxisAlignment: CrossAxisAlignment.center,

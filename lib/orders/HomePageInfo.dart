@@ -35,25 +35,23 @@ class HomePageInfoState extends State<HomePageInfo>
   void initState() {
     // TODO: implement initState
     BannerItem item = BannerItem.defaultBannerItem(
-        '''https://m.360buyimg.com/mobilecms/s700x280_jfs/t1/92921/9/10277/166927/5e17df1eEdd99a5bb/bb9fa3e4704e4002.jpg!cr_1125x445_0_171!q70.jpg.dpg''',
-        '''''');
+        'https://m.360buyimg.com/mobilecms/s700x280_jfs/t1/105831/25/12489/89824/5e4f7a8fE220d89bc/b8f9b7cd14708355.jpg!cr_1125x445_0_171!q70.jpg.dpg',
+        '');
     bannerList.add(item);
     item = BannerItem.defaultBannerItem(
-        '''https://m.360buyimg.com/mobilecms/s700x280_jfs/t1/105831/25/12489/89824/5e4f7a8fE220d89bc/b8f9b7cd14708355.jpg!cr_1125x445_0_171!q70.jpg.dpg''',
-        '''''');
+        'https://m.360buyimg.com/mobilecms/s700x280_jfs/t1/105831/25/12489/89824/5e4f7a8fE220d89bc/b8f9b7cd14708355.jpg!cr_1125x445_0_171!q70.jpg.dpg',
+        '');
+    bannerList.add(item);
+    item = BannerItem.defaultBannerItem('https://m.360buyimg.com/mobilecms/s700x280_jfs/t1/109302/32/6165/35704/5e4a2626Ea8cd4a8c/887a313f101225be.jpg!cr_1125x445_0_171!q70.jpg.dpg', '');
     bannerList.add(item);
     item = BannerItem.defaultBannerItem(
-        '''https://m.360buyimg.com/mobilecms/s700x280_jfs/t1/109302/32/6165/35704/5e4a2626Ea8cd4a8c/887a313f101225be.jpg!cr_1125x445_0_171!q70.jpg.dpg''',
-        '''''');
-    bannerList.add(item);
-    item = BannerItem.defaultBannerItem(
-        '''https://m.360buyimg.com/mobilecms/s700x280_jfs/t1/97589/1/4582/268390/5de71bb1E6acb2028/8366e3ee3e52409d.jpg!cr_1125x445_0_171!q70.jpg.dpg''',
-        '''''');
+        'https://m.360buyimg.com/mobilecms/s700x280_jfs/t1/97589/1/4582/268390/5de71bb1E6acb2028/8366e3ee3e52409d.jpg!cr_1125x445_0_171!q70.jpg.dpg',
+        '');
     bannerList.add(item);
 
     item = BannerItem.defaultBannerItem(
-        '''https://m.360buyimg.com/mobilecms/s700x280_jfs/t1/105831/25/12489/89824/5e4f7a8fE220d89bc/b8f9b7cd14708355.jpg!cr_1125x445_0_171!q70.jpg.dpg''',
-        '''''');
+        'https://m.360buyimg.com/mobilecms/s700x280_jfs/t1/105831/25/12489/89824/5e4f7a8fE220d89bc/b8f9b7cd14708355.jpg!cr_1125x445_0_171!q70.jpg.dpg',
+        '');
     bannerList.add(item);
     super.initState();
     this.tabController = TabController(length: tabTitle.length, vsync: this);
@@ -157,7 +155,7 @@ class HomePageInfoState extends State<HomePageInfo>
               crossAxisCount: 5,
               mainAxisSpacing: 1.0,
               crossAxisSpacing: 1.0,
-              childAspectRatio: 1.0),
+              childAspectRatio: 0.8),
           delegate: SliverChildBuilderDelegate((context, position) {
             return Container(
               alignment: Alignment.center,
@@ -168,7 +166,7 @@ class HomePageInfoState extends State<HomePageInfo>
                 children: <Widget>[
                   new Container(
                     margin: EdgeInsets.only(top: 5.0),
-                    padding: EdgeInsets.all(12.0),
+                    padding: EdgeInsets.all(6.0),
                     decoration: BoxDecoration(
                         shape: BoxShape.circle,
                         color:

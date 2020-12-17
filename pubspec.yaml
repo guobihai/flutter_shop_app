@@ -29,7 +29,7 @@ dependencies:
   transparent_image: ^0.1.0
 
   #bmob
-  data_plugin: ^0.0.14
+  data_plugin: ^0.0.16
 
 dev_dependencies:
   flutter_test:

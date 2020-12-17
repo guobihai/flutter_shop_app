@@ -5,7 +5,7 @@ import 'package:flutter/services.dart';
 import 'dart:io';
 
 void main() {
-  Bmob.initMasterKey('bb1840d9706a644d0e33b85719c9a241', 'f1cd0b15ca9c49dbba21966019f57faa', '00b1d9943c5e416b9008c9d0a3e9f6fa');
+  Bmob.init('https://api2.bmob.cn','bb1840d9706a644d0e33b85719c9a241', 'f1cd0b15ca9c49dbba21966019f57faa');
   runApp(MyApp());
   if (Platform.isAndroid) {
     SystemUiOverlayStyle systemUiOverlayStyle =
