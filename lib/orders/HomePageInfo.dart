@@ -86,11 +86,11 @@ class HomePageInfoState extends State<HomePageInfo>
 
   Widget _buildImageWidget(String url) {
     return new Container(
-        width: 160.0,
+        width: 380.0,
         decoration: BoxDecoration(
             border: new Border.all(color: Colors.grey[100], width: 1.0),
             borderRadius: new BorderRadius.circular(5.0),
-            color: Colors.white),
+            color: Colors.black),
         child: Image.network(
           url,
           height: double.infinity,

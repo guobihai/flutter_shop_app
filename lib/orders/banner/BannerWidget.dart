@@ -70,7 +70,7 @@ class BannerState extends State<BannerWidget> {
   }
 
   _initPageAutoScroll() {
-    start();
+//    start();
   }
 
   @override
@@ -143,13 +143,11 @@ class BannerState extends State<BannerWidget> {
                       borderRadius: BorderRadius.circular(widget.mImageRadius),
                       child: FadeInImage.memoryNetwork(
                           placeholder: kTransparentImage,
-                          image: widget
-                              .datas[index % widget.datas.length].itemImagePath,
+                          image: widget.datas[index % widget.datas.length].itemImagePath,
                           fit: BoxFit.cover),
                     ),
                   )
-                : widget.build(
-                    index, widget.datas[index % widget.datas.length]));
+                : widget.build(index, widget.datas[index % widget.datas.length]));
       },
     );
   }
@@ -217,6 +215,10 @@ class BannerState extends State<BannerWidget> {
   }
 }
 
+/**
+ *
+ * banner item
+ */
 class BannerItem {
   String itemImagePath;
   Widget itemText;

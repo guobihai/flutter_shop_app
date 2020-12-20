@@ -1,5 +1,4 @@
 import 'package:com_shop_app/orders/entrys/CatalogTable.dart';
-import 'package:data_plugin/bmob/bmob_query.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'dart:ui' as ui;
@@ -286,21 +285,32 @@ class CatalogPageInfoState extends State<CatalogPageInfo>
   }
 
   _loadCatalogInfo() {
-    BmobQuery<CatalogTable> query = new BmobQuery<CatalogTable>();
-    query.setOrder("order");
-    query.queryObjects().then((data) {
-      List<CatalogTable> list =
-          data.map((i) => CatalogTable.fromJson(i)).toList();
+    // BmobQuery<CatalogTable> query = new BmobQuery<CatalogTable>();
+    // query.setOrder("order");
+    // query.queryObjects().then((data) {
+    //   List<CatalogTable> list =
+    //       data.map((i) => CatalogTable.fromJson(i)).toList();
       setState(() {
+        CatalogTable catalogTable = new CatalogTable("家电");
+        CatalogTable catalogTable1 = new CatalogTable("数码");
+        CatalogTable catalogTable2 = new CatalogTable("生鲜");
+        CatalogTable catalogTable3 = new CatalogTable("水果");
+        CatalogTable catalogTable4 = new CatalogTable("家电");
         listItem.clear();
-        listItem.addAll(list);
+        listItem.add(catalogTable);
+        listItem.add(catalogTable1);
+        listItem.add(catalogTable2);
+        listItem.add(catalogTable3);
+        listItem.add(catalogTable4);
+
+        
         for (int i = 0; i < listItem.length; i++) {
           if (i == 0) {
             listItem[i].select = true;
             break;
           }
         }
-      });
+      // });
     });
   }
 

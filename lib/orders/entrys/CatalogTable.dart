@@ -1,6 +1,4 @@
-import 'package:data_plugin/bmob/table/bmob_object.dart';
-
-class CatalogTable extends BmobObject {
+class CatalogTable {
   String name;
 
   int order;
@@ -9,11 +7,10 @@ class CatalogTable extends BmobObject {
 
   bool select = false;
 
-  @override
-  Map getParams() {
-    // TODO: implement getParams
-    return null;
+  CatalogTable(String name) {
+    this.name = name;
   }
+
 
   CatalogTable.fromJson(Map<String, dynamic> json)
       : name = json['name'],
