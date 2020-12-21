@@ -14,6 +14,8 @@ double emptyWidth = 84.0; //空位占位符
 double itemWidth = 0;
 double itemHeight = 0;
 
+double lessItemWidth = 0.0; //缺省的值
+
 //背景颜色
 Color bgcolor = Color(int.parse("0xff151823"));
 
@@ -46,9 +48,7 @@ class GalleryPageInfoState extends State<GalleryPageInfo>
   double _scaleFactor = 0.8;
   double _height;
 
-  /**
-   * 构造画廊item
-   */
+  //构造画廊item
   Widget _buildImageWidget(String url, int index) {
     return new Container(
       width: itemWidth,
@@ -74,9 +74,7 @@ class GalleryPageInfoState extends State<GalleryPageInfo>
     );
   }
 
-  /**
-   * 构造画廊item
-   */
+  //构造画廊item
   Widget _buildImagLayut(String url, int index) {
     return new Container(
       width: itemWidth,
@@ -101,9 +99,7 @@ class GalleryPageInfoState extends State<GalleryPageInfo>
     );
   }
 
-  /**
-   * 底部信息
-   */
+  //底部信息
   Widget _buildHeadLayout() {
     return Container(
       child: Row(
@@ -162,8 +158,8 @@ class GalleryPageInfoState extends State<GalleryPageInfo>
           cacheExtent: 1.0,
           shrinkWrap: false,
           scrollDirection: Axis.horizontal,
-          physics:
-              const PageScrollPhysics1(parent: const BouncingScrollPhysics()),
+          physics: PageScrollPhysics1(
+              parent: const BouncingScrollPhysics(), lessWidth: lessItemWidth),
           padding: EdgeInsets.only(top: marginLeft, bottom: marginLeft),
           childrenDelegate: SliverChildBuilderDelegate((context, index) {
             if (index == _list.length) {
@@ -188,9 +184,7 @@ class GalleryPageInfoState extends State<GalleryPageInfo>
     return shader;
   }
 
-  /**
-   * 创建标题
-   */
+  //创建标题
   Widget createTitleWidget(var title, bool isSelect) {
     return new Container(
         child: Text(
@@ -207,9 +201,7 @@ class GalleryPageInfoState extends State<GalleryPageInfo>
     ));
   }
 
-  /**
-   * 标题
-   */
+  //标题
   Widget _buildTitleList() {
     return Padding(
       padding: EdgeInsets.only(top: 30.0, left: 8.0, right: 8.0, bottom: 15.0),
@@ -234,6 +226,7 @@ class GalleryPageInfoState extends State<GalleryPageInfo>
   Matrix4 _buildMatrix4(int index) {
     Matrix4 matrix4 = Matrix4.identity();
     print("========index======$index");
+    print("========_currentPage======$_currentPage");
     // if (index == _currentPage.floor()) {
     //   //当前的item
     //   var currScale = 1 - (_currentPage - index) * (1 - _scaleFactor);
@@ -267,17 +260,16 @@ class GalleryPageInfoState extends State<GalleryPageInfo>
     return matrix4;
   }
 
-  /**
-   * pageview
-   */
+  // pageview
   Widget _buildPageView() {
     return Container(
         height: SystemUtils.getDevicesHeight(),
         color: bgcolor,
         child: new PageView.custom(
             controller: _pageController,
-            physics:
-                const PageScrollPhysics1(parent: const BouncingScrollPhysics()),
+            physics: PageScrollPhysics1(
+                parent: const BouncingScrollPhysics(),
+                lessWidth: lessItemWidth),
             childrenDelegate: new SliverChildBuilderDelegate(
                 (context, index) => new Transform(
                       transform: _buildMatrix4(index),
@@ -303,7 +295,7 @@ class GalleryPageInfoState extends State<GalleryPageInfo>
     itemWidth = SystemUtils.getDevicesWidth() - itempading;
     emptyWidth = itempading - marginLeft;
     _height = SystemUtils.getDevicesHeight() - 100;
-
+    lessItemWidth = SystemUtils.getDevicesWidth() - itemWidth - marginLeft;
     _pageController = PageController(
       initialPage: _index, //默认在第几个
       viewportFraction: 1, // 占屏幕多少，1为占满整个屏幕

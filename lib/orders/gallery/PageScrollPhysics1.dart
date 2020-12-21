@@ -6,11 +6,16 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter/foundation.dart' show precisionErrorTolerance;
 
 //计算 item的宽的余位
-const double lessItemWidth = 85.85714285714289;
+// const double lessItemWidth = 85.85714285714289;
+const double lessItemWidth = 90;
 
+// ignore: must_be_immutable
 class PageScrollPhysics1 extends PageScrollPhysics {
+ static double lessItemWidth = 85.85714285714289;
   /// Creates physics for a [PageView].
-  const PageScrollPhysics1({ScrollPhysics parent}) : super(parent: parent);
+   PageScrollPhysics1({ScrollPhysics parent,double lessWidth}) : super(parent: parent){
+     PageScrollPhysics1.lessItemWidth = lessWidth;
+   }
 
   @override
   PageScrollPhysics1 applyTo(ScrollPhysics ancestor) {
