@@ -227,20 +227,21 @@ class GalleryPageInfoState extends State<GalleryPageInfo>
     Matrix4 matrix4 = Matrix4.identity();
     print("========index======$index");
     print("========_currentPage======$_currentPage");
+    print("========_currentPage=floor=====${_currentPage.floor()}");
     // if (index == _currentPage.floor()) {
     //   //当前的item
     //   var currScale = 1 - (_currentPage - index) * (1 - _scaleFactor);
     //   var currTrans = _height * (1 - currScale) / 2;
-    //   matrix4 = Matrix4.diagonal3Values(1.0, currScale, 1.0);
+    //   matrix4 = Matrix4.diagonal3Values(1.0, currScale, 1.0)
+    //     ..setTranslationRaw(0.0, currTrans, 0.0);
     //   print("当前item currScale:$currScale");
     //   print("当前item currTrans:$currTrans");
     // } else if (index == _currentPage.floor() + 1) {
     //   //右边的item
-    //   var currScale =
-    //       _scaleFactor + (_currentPage - index + 1) * (1 - _scaleFactor);
+    //   var currScale = _scaleFactor + (_currentPage - index + 1) * (1 - _scaleFactor);
     //   var currTrans = _height * (1 - currScale) / 2;
-    //   matrix4 = Matrix4.diagonal3Values(1.0, currScale, 1.0);
-    //
+    //   matrix4 = Matrix4.diagonal3Values(1.0, currScale, 1.0)
+    //     ..setTranslationRaw(0.0, currTrans, 0.0);
     //   print("右边item currScale:$currScale");
     //   print("右边item currTrans:$currTrans");
     // } else if (index == _currentPage.floor() - 1) {

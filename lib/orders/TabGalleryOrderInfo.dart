@@ -1,3 +1,5 @@
+import 'package:com_shop_app/orders/HomePageInfo.dart';
+
 import 'CatPageInfo.dart';
 import 'CatalogPageInfo.dart';
 import 'CenterPageInfo.dart';
@@ -10,12 +12,12 @@ Color bgcolor = Color(int.parse("0xff151823"));
 /**
  * 商城首页选项
  */
-class TabOrderInfo extends StatefulWidget {
+class TabMallOrderInfo extends StatefulWidget {
   @override
   TabOrderInfoState createState() => new TabOrderInfoState();
 }
 
-class TabOrderInfoState extends State<TabOrderInfo>
+class TabOrderInfoState extends State<TabMallOrderInfo>
     with SingleTickerProviderStateMixin {
   var _pageController = PageController(initialPage: 0);
   var _selectIndex = 0;
@@ -55,7 +57,7 @@ class TabOrderInfoState extends State<TabOrderInfo>
           controller: _pageController,
           onPageChanged: _onPageSelect,
           children: <Widget>[
-            new GalleryPageInfo(),
+            new HomePageInfo(context),
             new CatalogPageInfo(),
             new CatPageInfo(),
             new CatPageInfo(),
@@ -126,6 +128,7 @@ class TabOrderInfoState extends State<TabOrderInfo>
         home: DefaultTabController(
             length: 5,
             child: Scaffold(
+              drawer: new CenterPageInfo(),
                 body: TabBarView(
                   controller: _tabController,
                   children: <Widget>[

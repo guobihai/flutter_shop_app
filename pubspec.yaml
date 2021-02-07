@@ -24,6 +24,10 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.2
 
+  # Dart 常用工具类库 https://github.com/Sky24n/common_utils
+  common_utils: ^1.2.1
+    # Flutter 常用工具类库 https://github.com/Sky24n/flustars
+  flustars: ^0.3.3
 
   #banner
   transparent_image: ^0.1.0

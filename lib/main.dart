@@ -1,7 +1,9 @@
-import 'package:com_shop_app/orders/TabOrderInfo.dart';
+import 'package:com_shop_app/orders/TabGalleryOrderInfo.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'dart:io';
+
+import 'orders/GoodsTabOrderInfo.dart';
 
 void main() {
   runApp(MyApp());

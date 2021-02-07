@@ -42,7 +42,9 @@ class HomePageInfoState extends State<HomePageInfo>
         'https://m.360buyimg.com/mobilecms/s700x280_jfs/t1/105831/25/12489/89824/5e4f7a8fE220d89bc/b8f9b7cd14708355.jpg!cr_1125x445_0_171!q70.jpg.dpg',
         '');
     bannerList.add(item);
-    item = BannerItem.defaultBannerItem('https://m.360buyimg.com/mobilecms/s700x280_jfs/t1/109302/32/6165/35704/5e4a2626Ea8cd4a8c/887a313f101225be.jpg!cr_1125x445_0_171!q70.jpg.dpg', '');
+    item = BannerItem.defaultBannerItem(
+        'https://m.360buyimg.com/mobilecms/s700x280_jfs/t1/109302/32/6165/35704/5e4a2626Ea8cd4a8c/887a313f101225be.jpg!cr_1125x445_0_171!q70.jpg.dpg',
+        '');
     bannerList.add(item);
     item = BannerItem.defaultBannerItem(
         'https://m.360buyimg.com/mobilecms/s700x280_jfs/t1/97589/1/4582/268390/5de71bb1E6acb2028/8366e3ee3e52409d.jpg!cr_1125x445_0_171!q70.jpg.dpg',
@@ -61,27 +63,29 @@ class HomePageInfoState extends State<HomePageInfo>
     return SliverToBoxAdapter(
         child: Container(
             child: Stack(
-      children: <Widget>[
-        Container(
-          height: 130,
-          decoration: BoxDecoration(
-              color: Theme.of(context).primaryColor,
-              borderRadius: BorderRadius.only(
-                  bottomLeft: Radius.circular(12.0),
-                  bottomRight: Radius.circular(12.0))),
-        ),
-        new BannerWidget(
-          180.0,
-          bannerList,
-          mPading: 8.0,
-          pointAlignment: Alignment.bottomCenter,
-          textBackgroundColor: Colors.transparent,
-          bannerPress: (pos, item) {
-            print('第 $pos 点击了');
-          },
-        ),
-      ],
-    )));
+              children: <Widget>[
+                Container(
+                  height: 130,
+                  decoration: BoxDecoration(
+                      color: Theme
+                          .of(context)
+                          .primaryColor,
+                      borderRadius: BorderRadius.only(
+                          bottomLeft: Radius.circular(12.0),
+                          bottomRight: Radius.circular(12.0))),
+                ),
+                new BannerWidget(
+                  180.0,
+                  bannerList,
+                  mPading: 8.0,
+                  pointAlignment: Alignment.bottomCenter,
+                  textBackgroundColor: Colors.transparent,
+                  bannerPress: (pos, item) {
+                    print('第 $pos 点击了');
+                  },
+                ),
+              ],
+            )));
   }
 
   Widget _buildImageWidget(String url) {
@@ -90,7 +94,7 @@ class HomePageInfoState extends State<HomePageInfo>
         decoration: BoxDecoration(
             border: new Border.all(color: Colors.grey[100], width: 1.0),
             borderRadius: new BorderRadius.circular(5.0),
-            color: Colors.black),
+            color: Colors.white),
         child: Image.network(
           url,
           height: double.infinity,
@@ -170,7 +174,7 @@ class HomePageInfoState extends State<HomePageInfo>
                     decoration: BoxDecoration(
                         shape: BoxShape.circle,
                         color:
-                            position % 2 == 0 ? Colors.redAccent : Colors.blue),
+                        position % 2 == 0 ? Colors.redAccent : Colors.blue),
                     child: Icon(
                       position % 2 == 0 ? Icons.weekend : Icons.card_travel,
                       color: Colors.white,
@@ -223,7 +227,7 @@ class HomePageInfoState extends State<HomePageInfo>
               crossAxisSpacing: 2.0,
               childAspectRatio: 0.7),
           delegate: SliverChildBuilderDelegate(
-            (context, index) {
+                (context, index) {
               return _buildGoodsItemWidget(
                   "https://img30.360buyimg.com/jdcms/s150x150_jfs/t1/71930/9/4285/155832/5d26d9e1E5ced57c1/bbe0908ee81a18c8.jpg.webp");
             },
@@ -294,22 +298,22 @@ class HomePageInfoState extends State<HomePageInfo>
                           alignment: Alignment.bottomLeft,
                           child: RichText(
                               text: new TextSpan(
-                            style: TextStyle(
-                              color: Colors.red,
-                              fontWeight: FontWeight.bold,
-                            ),
-                            children: <TextSpan>[
-                              new TextSpan(text: " ¥ "),
-                              new TextSpan(
-                                text: "68",
-                                style: new TextStyle(
+                                style: TextStyle(
+                                  color: Colors.red,
                                   fontWeight: FontWeight.bold,
-                                  fontSize: 20.0,
                                 ),
-                              ),
-                              new TextSpan(text: ".00"),
-                            ],
-                          )),
+                                children: <TextSpan>[
+                                  new TextSpan(text: " ¥ "),
+                                  new TextSpan(
+                                    text: "68",
+                                    style: new TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 20.0,
+                                    ),
+                                  ),
+                                  new TextSpan(text: ".00"),
+                                ],
+                              )),
                         )
                       ],
                     ),
@@ -320,6 +324,7 @@ class HomePageInfoState extends State<HomePageInfo>
           });
     }
 
+    //顶部toolbar
     Widget _buildSliAppBar() {
       return SliverAppBar(
         pinned: true,
@@ -327,9 +332,12 @@ class HomePageInfoState extends State<HomePageInfo>
         elevation: 0.0,
         title: Text('精品商城'),
         centerTitle: true,
-        leading: Icon(Icons.home),
+        leading:  IconButton(icon: Icon(Icons.home), onPressed: () {
+          Scaffold.of(context).openDrawer();
+        }),
         actions: <Widget>[
-          IconButton(icon: Icon(Icons.camera_alt), onPressed: () {}),
+          IconButton(icon: Icon(Icons.camera_alt), onPressed: () {
+          }),
           IconButton(
               icon: BuildNumWidget.buildNonalMsgWidget(
                   Icon(Icons.chat), 12.0, 10, Colors.white, Colors.red),
@@ -421,8 +429,8 @@ class StickyTabBarDelegate extends SliverPersistentHeaderDelegate {
   StickyTabBarDelegate({@required this.child, this.color});
 
   @override
-  Widget build(
-      BuildContext context, double shrinkOffset, bool overlapsContent) {
+  Widget build(BuildContext context, double shrinkOffset,
+      bool overlapsContent) {
     return new Container(
       child: child,
       color: color,
@@ -459,8 +467,8 @@ class _SliverAppBarDelegate extends SliverPersistentHeaderDelegate {
   double get maxExtent => max(maxHeight, minHeight);
 
   @override
-  Widget build(
-      BuildContext context, double shrinkOffset, bool overlapsContent) {
+  Widget build(BuildContext context, double shrinkOffset,
+      bool overlapsContent) {
     return new SizedBox.expand(child: child);
   }
 

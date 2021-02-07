@@ -1,10 +1,11 @@
+import 'package:com_shop_app/orders/LeftPageInfo.dart';
+
 import 'CatPageInfo.dart';
 import 'CatalogPageInfo.dart';
 import 'CenterPageInfo.dart';
 import 'HomePageInfo.dart';
 import 'package:flutter/material.dart';
 import 'widgets/BuildNumWidet.dart';
-import 'gallery/GalleryPageInfo.dart';
 
 Color bgcolor = Color(int.parse("0xff151823"));
 
@@ -32,16 +33,19 @@ class TabOrderInfoState extends State<TabOrderInfo> {
     });
   }
 
-  Widget _buildHome1(){
+  Widget _buildHome1() {
     return new MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(primaryColor: Color(int.parse("0xff151823"))),
+      theme: ThemeData(primaryColor: Colors.red),
       home: Scaffold(
+        drawer: new Drawer(
+          child: new LeftPageInfo(),
+        ),
         body: PageView(
           controller: _pageController,
           onPageChanged: _onPageSelect,
           children: <Widget>[
-            new GalleryPageInfo(),
+            new HomePageInfo(context),
             new CatalogPageInfo(),
             new CatPageInfo(),
             new CenterPageInfo()
@@ -98,11 +102,11 @@ class TabOrderInfoState extends State<TabOrderInfo> {
       ),
     );
   }
+
   @override
   Widget build(BuildContext context) {
-    return  _buildHome1();
+    return _buildHome1();
   }
-
 
   @override
   void initState() {
